@@ -8,119 +8,115 @@
       </feMerge>
     </filter>
     <radialGradient id="dominantBg" cx="100%" cy="0%" r="70%" gradientUnits="objectBoundingBox">
-      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#000" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
     </radialGradient>
   </defs>
 
-  <!-- Background -->
-  <rect width="800" height="420" fill="#0d1117"/>
+  <!-- No background — transparent -->
 
   <!-- Dominant quadrant glow -->
   <rect x="420" y="30" width="340" height="170" fill="url(#dominantBg)"/>
 
   <!-- Subtle grid at 25% and 75% -->
-  <g stroke="#161b22" stroke-width="0.5">
+  <g stroke="#888" stroke-width="0.5" stroke-opacity="0.08">
     <line x1="250" y1="30" x2="250" y2="370"/>
     <line x1="590" y1="30" x2="590" y2="370"/>
-    <line x1="80" y1="115" x2="760" y2="115"/>
-    <line x1="80" y1="285" x2="760" y2="285"/>
+    <line x1="80"  y1="115" x2="760" y2="115"/>
+    <line x1="80"  y1="285" x2="760" y2="285"/>
   </g>
 
   <!-- Chart border -->
-  <rect x="80" y="30" width="680" height="340" fill="none" stroke="#21262d" stroke-width="1"/>
+  <rect x="80" y="30" width="680" height="340" fill="none" stroke="#888" stroke-width="1" stroke-opacity="0.2"/>
 
   <!-- Quadrant dividers -->
-  <line x1="420" y1="30" x2="420" y2="370" stroke="#30363d" stroke-width="1" stroke-dasharray="5,5"/>
-  <line x1="80"  y1="200" x2="760" y2="200" stroke="#30363d" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="420" y1="30"  x2="420" y2="370" stroke="#888" stroke-width="1" stroke-opacity="0.18" stroke-dasharray="5,5"/>
+  <line x1="80"  y1="200" x2="760" y2="200" stroke="#888" stroke-width="1" stroke-opacity="0.18" stroke-dasharray="5,5"/>
 
-  <!-- Quadrant labels -->
-  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#3d444d">
+  <!-- Quadrant labels — axes swapped: X=Visibility, Y=Position -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#888" fill-opacity="0.4">
     <text x="428" y="50">Dominant</text>
-    <text x="88"  y="50">Mentioned</text>
-    <text x="428" y="220">Positioned</text>
+    <text x="88"  y="50">Positioned</text>
+    <text x="428" y="220">Mentioned</text>
     <text x="88"  y="220">Unknown</text>
   </g>
 
-  <!-- Y-axis label -->
+  <!-- Y-axis label: AI Answer Position -->
   <text transform="rotate(-90)" x="-200" y="22"
     font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-    font-size="11" fill="#484f58" text-anchor="middle">Brand Visibility ↑</text>
+    font-size="11" fill="#888" fill-opacity="0.6" text-anchor="middle">AI Answer Position ↑</text>
 
-  <!-- X-axis label -->
+  <!-- X-axis label: Brand Visibility -->
   <text x="420" y="408" text-anchor="middle"
     font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-    font-size="11" fill="#484f58">AI Answer Position →</text>
+    font-size="11" fill="#888" fill-opacity="0.6">Brand Visibility →</text>
 
   <!-- Scale ticks -->
-  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9" fill="#30363d">
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9" fill="#888" fill-opacity="0.3">
     <text x="80"  y="382" text-anchor="middle">0</text>
     <text x="760" y="382" text-anchor="middle">100</text>
     <text x="74"  y="373" text-anchor="end">0</text>
     <text x="74"  y="34"  text-anchor="end">100</text>
   </g>
 
-  <!-- Trail: dashed line from start to arrival position -->
-  <line x1="175" y1="348" x2="640" y2="68"
-    stroke="#58a6ff" stroke-width="0.75" stroke-dasharray="5,12" stroke-opacity="0.18"/>
 
-  <!-- ══ COMPETITORS ══ -->
+  <!-- ══ COMPETITORS — positions remapped to swapped axes ══ -->
 
-  <!-- A · Unknown · small -->
-  <circle cx="195" cy="315" r="16" fill="#161b22" stroke="#3d444d" stroke-width="1.5">
+  <!-- A · Unknown · low visibility, low position -->
+  <circle cx="190" cy="313" r="16" fill="#888" fill-opacity="0.06" stroke="#888" stroke-width="1.5" stroke-opacity="0.18">
     <animateTransform attributeName="transform" type="translate"
       values="0,0; 0,-5; 0,3; 0,0" dur="7s" repeatCount="indefinite"
       calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"/>
   </circle>
 
-  <!-- B · Dominant · large (established player) -->
-  <circle cx="555" cy="108" r="28" fill="#161b22" stroke="#3d444d" stroke-width="1.5">
+  <!-- B · Dominant · high visibility, high position (established leader) -->
+  <circle cx="604" cy="132" r="28" fill="#888" fill-opacity="0.06" stroke="#888" stroke-width="1.5" stroke-opacity="0.18">
     <animateTransform attributeName="transform" type="translate"
       values="0,0; 0,4; 0,-3; 0,0" dur="9s" repeatCount="indefinite"
       calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"/>
   </circle>
 
   <!-- C · Unknown · tiny -->
-  <circle cx="305" cy="298" r="11" fill="#161b22" stroke="#3d444d" stroke-width="1.5">
+  <circle cx="245" cy="252" r="11" fill="#888" fill-opacity="0.06" stroke="#888" stroke-width="1.5" stroke-opacity="0.18">
     <animateTransform attributeName="transform" type="translate"
       values="0,0; 4,0; -3,2; 0,0" dur="5s" begin="1s" repeatCount="indefinite"
       calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"/>
   </circle>
 
-  <!-- D · Positioned · medium -->
-  <circle cx="618" cy="268" r="20" fill="#161b22" stroke="#3d444d" stroke-width="1.5">
+  <!-- D · Positioned · low visibility, high position -->
+  <circle cx="284" cy="101" r="20" fill="#888" fill-opacity="0.06" stroke="#888" stroke-width="1.5" stroke-opacity="0.18">
     <animateTransform attributeName="transform" type="translate"
       values="0,0; -4,0; 3,-3; 0,0" dur="11s" repeatCount="indefinite"
       calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"/>
   </circle>
 
-  <!-- E · Mentioned · medium-small -->
-  <circle cx="215" cy="112" r="14" fill="#161b22" stroke="#3d444d" stroke-width="1.5">
+  <!-- E · Mentioned · high visibility, low position -->
+  <circle cx="596" cy="302" r="14" fill="#888" fill-opacity="0.06" stroke="#888" stroke-width="1.5" stroke-opacity="0.18">
     <animateTransform attributeName="transform" type="translate"
       values="0,0; 0,5; 0,-4; 0,0" dur="8s" begin="2s" repeatCount="indefinite"
       calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"/>
   </circle>
 
-  <!-- F · Positioned · small -->
-  <circle cx="472" cy="318" r="13" fill="#161b22" stroke="#3d444d" stroke-width="1.5">
+  <!-- F · Unknown/Positioned boundary -->
+  <circle cx="184" cy="174" r="13" fill="#888" fill-opacity="0.06" stroke="#888" stroke-width="1.5" stroke-opacity="0.18">
     <animateTransform attributeName="transform" type="translate"
       values="0,0; 3,4; -2,0; 0,0" dur="6s" begin="3s" repeatCount="indefinite"
       calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"/>
   </circle>
 
-  <!-- ══ YOUR BRAND: travels from Unknown → Dominant ══ -->
+  <!-- ══ YOUR BRAND: Unknown → Dominant ══ -->
 
-  <!-- Pulse ring (appears on arrival) -->
-  <circle r="26" fill="none" stroke="#58a6ff" stroke-width="1.5" opacity="0">
+  <!-- Pulse ring -->
+  <circle r="26" fill="none" stroke="#000" stroke-width="1.5" opacity="0">
     <animate attributeName="cx"
-      keyTimes="0;0.1;0.6;0.95;1" values="175;175;640;640;175"
+      keyTimes="0;0.1;0.6;0.95;1" values="124;124;684;684;124"
       dur="10s" repeatCount="indefinite" calcMode="spline"
       keySplines="0 0 1 1; 0.42 0 0.58 1; 0 0 1 1; 0.42 0 0.58 1"/>
     <animate attributeName="cy"
-      keyTimes="0;0.1;0.6;0.95;1" values="348;348;68;68;348"
+      keyTimes="0;0.1;0.6;0.95;1" values="322;322;90;90;322"
       dur="10s" repeatCount="indefinite" calcMode="spline"
       keySplines="0 0 1 1; 0.42 0 0.58 1; 0 0 1 1; 0.42 0 0.58 1"/>
-    <animate attributeName="r"  values="26;58;26" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="26;58;26" dur="2s" repeatCount="indefinite"/>
     <animate attributeName="stroke-opacity" values="0.65;0;0.65" dur="2s" repeatCount="indefinite"/>
     <animate attributeName="opacity"
       keyTimes="0;0.56;0.62;0.9;0.95;1" values="0;0;1;1;0;0"
@@ -128,30 +124,36 @@
   </circle>
 
   <!-- Main circle -->
-  <circle r="18" fill="#1c2128" stroke="#3d444d" stroke-width="1.5" filter="url(#glow)">
+  <circle r="18" fill="#888" fill-opacity="0.1" stroke="#888" stroke-width="1.5" stroke-opacity="0.25" filter="url(#glow)">
     <animate attributeName="cx"
-      keyTimes="0;0.1;0.6;0.95;1" values="175;175;640;640;175"
+      keyTimes="0;0.1;0.6;0.95;1" values="124;124;684;684;124"
       dur="10s" repeatCount="indefinite" calcMode="spline"
       keySplines="0 0 1 1; 0.42 0 0.58 1; 0 0 1 1; 0.42 0 0.58 1"/>
     <animate attributeName="cy"
-      keyTimes="0;0.1;0.6;0.95;1" values="348;348;68;68;348"
+      keyTimes="0;0.1;0.6;0.95;1" values="322;322;90;90;322"
       dur="10s" repeatCount="indefinite" calcMode="spline"
       keySplines="0 0 1 1; 0.42 0 0.58 1; 0 0 1 1; 0.42 0 0.58 1"/>
     <animate attributeName="r"
       keyTimes="0;0.1;0.6;0.95;1" values="18;18;24;24;18"
       dur="10s" repeatCount="indefinite"/>
     <animate attributeName="fill"
-      keyTimes="0;0.1;0.6;0.95;1" values="#1c2128;#1c2128;#1f6feb;#1f6feb;#1c2128"
+      keyTimes="0;0.1;0.6;0.95;1" values="#888;#888;#000;#000;#888"
+      dur="10s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity"
+      keyTimes="0;0.1;0.6;0.95;1" values="0.1;0.1;1;1;0.1"
       dur="10s" repeatCount="indefinite"/>
     <animate attributeName="stroke"
-      keyTimes="0;0.1;0.6;0.95;1" values="#3d444d;#3d444d;#58a6ff;#58a6ff;#3d444d"
+      keyTimes="0;0.1;0.6;0.95;1" values="#888;#888;#333;#333;#888"
+      dur="10s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-opacity"
+      keyTimes="0;0.1;0.6;0.95;1" values="0.25;0.25;1;1;0.25"
       dur="10s" repeatCount="indefinite"/>
   </circle>
 
-  <!-- "Your Brand" label (fixed at arrival point, fades in/out) -->
-  <text x="640" y="108" text-anchor="middle"
+  <!-- "Your Brand" label — appears above circle on arrival -->
+  <text x="684" y="58" text-anchor="middle"
     font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-    font-size="11" font-weight="500" fill="#58a6ff" opacity="0">
+    font-size="11" font-weight="500" fill="#000" opacity="0">
     <animate attributeName="opacity"
       keyTimes="0;0.56;0.62;0.9;0.95;1" values="0;0;1;1;0;0"
       dur="10s" repeatCount="indefinite"/>
@@ -160,9 +162,9 @@
 
   <!-- Legend -->
   <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11">
-    <circle cx="84"  cy="405" r="5" fill="#161b22" stroke="#3d444d" stroke-width="1"/>
-    <text x="95"  y="409" fill="#484f58">Competitors</text>
-    <circle cx="194" cy="405" r="5" fill="#1f6feb" stroke="#58a6ff" stroke-width="1"/>
-    <text x="205" y="409" fill="#8b949e">Your Brand</text>
+    <circle cx="84"  cy="405" r="5" fill="#888" fill-opacity="0.12" stroke="#888" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="95"  y="409" fill="#888" fill-opacity="0.5">Competitors</text>
+    <circle cx="194" cy="405" r="5" fill="#000" stroke="#333" stroke-width="1"/>
+    <text x="205" y="409" fill="#000">Your Brand</text>
   </g>
 </svg>

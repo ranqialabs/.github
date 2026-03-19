@@ -15,7 +15,7 @@ Not keywords. Not clicks. **Answers.**
 
 <br/>
 
-<img src="quadrant.svg" width="800" alt="Brand position in AI search"/>
+<img src="brand-chart.svg" width="800" alt="Brand position in AI search"/>
 
 <br/>
 
